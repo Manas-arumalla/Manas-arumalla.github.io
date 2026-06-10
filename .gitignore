@@ -1,0 +1,12 @@
+# dependencies & build output (Pages builds via Actions)
+node_modules/
+dist/
+
+# local docs, dev tooling and notes — not needed to run the site
+docs/
+scripts/
+*.md
+
+# misc
+*.log
+.DS_Store

@@ -5,6 +5,28 @@ export const CATEGORIES = ['All', 'Aerial', 'Manipulation', 'Mobile Robots', 'Co
 
 export const PROJECTS = [
   {
+    id: 'swarm-autonomy',
+    title: 'swarm-autonomy — GPS-Denied Multi-Drone Search & Pursuit',
+    cat: 'Aerial',
+    year: '2026',
+    media: { type: 'image', src: '/assets/swarm-auto-pursuit.gif' },
+    gallery: [
+      { src: '/assets/swarm-auto-sim.gif', cap: 'Headless swarm pursuit simulator' },
+      { src: '/assets/swarm-auto-explore.png', cap: 'Cooperative exploration — 2.3× faster with 3 drones' },
+      { src: '/assets/swarm-auto-plan.png', cap: 'ESDF-gradient planning among buildings' },
+    ],
+    desc: 'Decentralized quadrotor swarm that explores GPS-denied cities, shares maps over bandwidth-limited radio, and cooperatively intercepts fleeing targets — no central coordinator.',
+    points: [
+      'GPS-denied flight: stereo visual-inertial odometry (OpenVINS) with EKF2 handover — 0.26 m mean error',
+      'Decentralized CBBA role allocation over peer-to-peer radio with measured bandwidth/dropout modelling',
+      'Vision-only pursuit with onboard detection and condensed-QP MPC — 2.7× lower jitter than reactive control',
+      'A* front-end + ESDF-gradient elastic-band planning — +0.9 m clearance among buildings',
+      'Cooperative exploration: 2.3× faster city coverage with 3 drones; 77 passing unit tests',
+    ],
+    stack: ['Python', 'PX4', 'ROS 2 Jazzy', 'OpenVINS', 'ESDF', 'CBBA', 'MPC', 'Gazebo'],
+    github: 'https://github.com/Manas-arumalla/swarm-autonomy',
+  },
+  {
     id: 'drone-landing',
     title: 'Vision-Based Drone Landing on Moving Platforms',
     cat: 'Aerial',
@@ -337,10 +359,11 @@ export const PROJECTS = [
 ]
 
 // Curated subset for the home-page preview grid.
-export const PREVIEW_IDS = ['intercept', 'ballpark', 'manipdyn', 'turtlebot3', 'steady-stride', 'handtrack']
+export const PREVIEW_IDS = ['swarm-autonomy', 'intercept', 'ballpark', 'manipdyn', 'steady-stride', 'handtrack']
 
 // Static fallback for the GitHub feed when the API is rate-limited.
 export const GH_FALLBACK = [
+  { name: 'swarm-autonomy', description: 'Decentralized GPS-denied multi-drone search & pursuit', language: 'Python', html_url: 'https://github.com/Manas-arumalla/swarm-autonomy' },
   { name: 'intercept', description: 'Elo ratings for missile-guidance laws — a reproducible benchmark', language: 'Python', html_url: 'https://github.com/Manas-arumalla/intercept' },
   { name: 'ballpark', description: 'Races classical and learned mobile-autonomy stacks', language: 'Python', html_url: 'https://github.com/Manas-arumalla/ballpark' },
   { name: 'flowswarm', description: 'Congestion-aware decentralized multi-robot navigation', language: 'Python', html_url: 'https://github.com/Manas-arumalla/flowswarm' },

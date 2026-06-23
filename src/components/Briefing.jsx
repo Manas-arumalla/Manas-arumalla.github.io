@@ -6,7 +6,7 @@ const TEXT = [
   { t: 'I build robots across the ', cls: '' },
   { t: 'full stack', cls: 'em' },
   { t: ' — dynamic modelling and controller design in MATLAB, validation in MuJoCo and Gazebo, deployment to ROS 2 and embedded hardware. ', cls: '' },
-  { t: 'Published at ICRM 2025 on hopping-robot dynamics. Contributor to a DST-funded research project. Most recently: simulating humanoids at a stealth robotics startup.', cls: 'dim' },
+  { t: 'Published at ICRM 2025 on hopping-robot dynamics. Contributor to a DST-funded research project. Simulating humanoids at a stealth robotics startup.', cls: 'dim' },
 ]
 
 function Word({ word, cls, progress, range }) {
@@ -50,7 +50,7 @@ function CountUp({ to }) {
 const STATS = [
   { n: 15, suffix: '+', label: 'Controllers benchmarked' },
   { n: 3, suffix: '', label: 'Research papers — 1 published · 2 in review' },
-  { n: 16, suffix: '', label: 'Open-source repositories' },
+  { n: 18, suffix: '', label: 'Open-source repositories' },
   { n: 5, suffix: '', label: 'Industry & research roles' },
 ]
 

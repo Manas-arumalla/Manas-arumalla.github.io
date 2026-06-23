@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import Hero from '../components/Hero'
 import Marquee from '../components/Marquee'
 import Briefing from '../components/Briefing'
+import Award from '../components/Award'
 import Flagship from '../components/Flagship'
 import ArchivePreview from '../components/ArchivePreview'
 import Timeline from '../components/Timeline'
@@ -27,6 +28,7 @@ export default function Home({ ready }) {
       <Hero ready={ready} />
       <Marquee />
       <Briefing />
+      <Award />
       <Flagship />
       <ArchivePreview />
       <Timeline />

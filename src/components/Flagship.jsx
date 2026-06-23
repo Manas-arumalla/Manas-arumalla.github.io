@@ -74,8 +74,8 @@ export default function Flagship() {
           <Reveal delay={0.08}><h2 className="h-section">Systems, not screenshots.<br />Everything below runs live.</h2></Reveal>
           <Reveal delay={0.16}>
             <p className="lead">
-              These panels are not videos — they are controllers and planners executing in your
-              browser, written from scratch for this site. Interact with them.
+              These panels are not videos, they are controllers and planners executing in your
+              browser. Interact with them.
             </p>
           </Reveal>
         </div>

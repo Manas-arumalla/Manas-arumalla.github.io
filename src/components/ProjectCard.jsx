@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
+import Media from './Media'
 
 const HOVERABLE = typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches
 
@@ -44,14 +45,14 @@ export default function ProjectCard({ p, onOpen, layout = false }) {
       <div className="card-media">
         {p.media.type === 'split' ? (
           <div className="media-split">
-            {p.media.srcs.map((s) => <img key={s} src={s} alt={p.title} loading="lazy" />)}
+            {p.media.srcs.map((s) => <Media key={s} src={s} alt={p.title} />)}
           </div>
         ) : p.media.type === 'video' ? (
           <video src={p.media.src} poster={p.media.poster} muted loop playsInline preload="none"
             onMouseEnter={(e) => e.currentTarget.play().catch(() => {})}
             onMouseLeave={(e) => e.currentTarget.pause()} />
         ) : (
-          <img src={p.media.src} alt={p.title} loading="lazy" />
+          <Media src={p.media.src} alt={p.title} />
         )}
       </div>
       <div className="card-body">

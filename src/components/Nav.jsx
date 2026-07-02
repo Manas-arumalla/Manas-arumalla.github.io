@@ -18,15 +18,32 @@ const LINKS = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [active, setActive] = useState('')
   const location = useLocation()
   const navigate = useNavigate()
 
-  // nav stays pinned while scrolling (user preference) — only the backdrop changes
+  // nav stays pinned while scrolling (user preference) — only the backdrop changes.
+  // scroll-spy: underline the section currently in view.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
+    let raf = null
+    const update = () => {
+      raf = null
+      setScrolled(window.scrollY > 40)
+      if (location.pathname !== '/') { setActive(location.pathname === '/archive' ? '/archive' : ''); return }
+      const probe = window.scrollY + window.innerHeight * 0.4
+      let current = ''
+      LINKS.forEach(([, href]) => {
+        if (!href.startsWith('#')) return
+        const el = document.querySelector(href)
+        if (el && el.offsetTop <= probe) current = href
+      })
+      setActive(current)
+    }
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update) }
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    update()
+    return () => { window.removeEventListener('scroll', onScroll); if (raf) cancelAnimationFrame(raf) }
+  }, [location.pathname])
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
@@ -58,9 +75,9 @@ export default function Nav() {
         <nav className="nav-links" aria-label="Primary">
           {LINKS.map(([label, href]) =>
             href.startsWith('#') ? (
-              <a key={label} href={href} onClick={(e) => goto(e, href)}>{label}</a>
+              <a key={label} href={href} className={active === href ? 'active' : ''} onClick={(e) => goto(e, href)}>{label}</a>
             ) : (
-              <Link key={label} to={href}>{label}</Link>
+              <Link key={label} to={href} className={active === href ? 'active' : ''}>{label}</Link>
             )
           )}
         </nav>

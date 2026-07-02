@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { X, ArrowUpRight } from 'lucide-react'
+import Media from './Media'
 
 export default function ProjectModal({ p, onClose }) {
   useEffect(() => {
@@ -32,12 +33,12 @@ export default function ProjectModal({ p, onClose }) {
         <div className="modal-media">
           {hero.type === 'split' ? (
             <div className="media-split">
-              {hero.srcs.map((s) => <img key={s} src={s} alt={p.title} />)}
+              {hero.srcs.map((s) => <Media key={s} src={s} alt={p.title} />)}
             </div>
           ) : hero.type === 'video' ? (
             <video src={hero.src} poster={hero.poster} muted loop autoPlay playsInline />
           ) : (
-            <img src={hero.src} alt={p.title} />
+            <Media src={hero.src} alt={p.title} />
           )}
         </div>
         <div className="modal-body">
@@ -52,7 +53,7 @@ export default function ProjectModal({ p, onClose }) {
               <div className="modal-gallery">
                 {p.gallery.map((g) => (
                   <figure key={g.src}>
-                    <img src={g.src} alt={g.cap} loading="lazy" />
+                    <Media src={g.src} alt={g.cap} />
                     <figcaption>{g.cap}</figcaption>
                   </figure>
                 ))}

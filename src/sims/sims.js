@@ -309,10 +309,10 @@ export class DroneSim extends BaseSim {
     })
     ctx.restore()
 
-    // interaction hint
+    // interaction hint (y=41: below the DOM panel label)
     ctx.font = '9px "JetBrains Mono", monospace'
     ctx.fillStyle = this.manual ? C.accent : C.faint
-    ctx.fillText(this.manual ? '↑ ← → THRUST · A = AUTOPILOT' : 'DRAG TO FLING · F = YOU FLY IT', 16, 22)
+    ctx.fillText(this.manual ? '↑ ← → THRUST · A = AUTOPILOT' : 'DRAG TO FLING · F = YOU FLY IT', 16, 41)
 
     const relV = Math.hypot(d.vx, d.vy).toFixed(1)
     const phaseLabel = this.grabbed ? 'GRABBED' : this.manual ? 'MANUAL' : this.phase
@@ -521,10 +521,10 @@ export class CartPoleSim extends BaseSim {
     ctx.fillStyle = C.faint
     ctx.fillText('θ(t)', 16, ty0 - 30)
 
-    // interaction hint
+    // interaction hint (y=41: below the DOM panel label)
     ctx.font = '9px "JetBrains Mono", monospace'
-    ctx.fillStyle = C.faint
-    ctx.fillText(this.mode === 'GAME' ? '← → TO BALANCE' : 'DRAG THE POLE TIP', 16, 22)
+    ctx.fillStyle = this.mode === 'GAME' ? C.accent : C.faint
+    ctx.fillText(this.mode === 'GAME' ? '← → TO BALANCE' : 'DRAG THE POLE TIP', 16, 41)
 
     if (this.mode === 'FELL') {
       ctx.font = 'bold 15px "JetBrains Mono", monospace'
@@ -758,14 +758,14 @@ export class PlannerSim extends BaseSim {
     ctx.strokeRect(...g)
     ctx.lineWidth = 1
 
-    // interaction hint / no-path warning
+    // interaction hint / no-path warning (y=41: below the DOM panel label)
     ctx.font = '9px "JetBrains Mono", monospace'
     if (this.noPath) {
       ctx.fillStyle = C.accent
-      ctx.fillText('NO PATH — ERASE A WALL (CLICK IT)', 16, 22)
+      ctx.fillText('NO PATH — ERASE A WALL (CLICK IT)', 16, 41)
     } else {
       ctx.fillStyle = C.faint
-      ctx.fillText('DRAW WALLS WITH YOUR MOUSE', 16, 22)
+      ctx.fillText('DRAW WALLS WITH YOUR MOUSE', 16, 41)
     }
 
     this.hud([

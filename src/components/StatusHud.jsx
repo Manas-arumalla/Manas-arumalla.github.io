@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom'
 const MODES = [
   ['#hero', 'BOOT'],
   ['#briefing', 'BRIEFING'],
-  ['#award', 'AWARD'],
+  ['#award', 'HACKATHONS'],
   ['#work', 'FLAGSHIP OPS'],
   ['#archive-preview', 'ARCHIVE SCAN'],
   ['#journey', 'TIMELINE'],

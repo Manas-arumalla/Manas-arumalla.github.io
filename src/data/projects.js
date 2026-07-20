@@ -5,23 +5,6 @@ export const CATEGORIES = ['All', 'Aerial', 'Manipulation', 'Mobile Robots', 'Co
 
 export const PROJECTS = [
   {
-    id: 'go2-inspection',
-    title: 'Autonomous Go2 — Facility Inspection Quadruped',
-    cat: 'Mobile Robots',
-    year: '2026',
-    media: { type: 'image', src: '/assets/go2-zones.png' },
-    desc: 'A Unitree Go2 that maps unknown facilities, finds and reads gauges, and writes the inspection report — no ground-truth poses, no manual steps. Born at the Europe Embodied ’26 hackathon in Munich.',
-    points: [
-      'Full autonomy pipeline: frontier exploration → RTAB-Map SLAM → room segmentation → Nav2 → YOLOE detection → 3D localization → report',
-      '4/4 gauge recall and precision (F1 = 1.0), ~0.1 m mean 3D localization error',
-      'Sim-to-real by construction: the identical ROS 2 node graph runs in Gazebo and on the real Go2',
-      'Reliability hardening: localization gates, wedge-recovery behaviours, observation-aware detection consolidation',
-      'One-command demo (`./run_demo.sh`) and 38 unit tests in CI',
-    ],
-    stack: ['ROS 2 Jazzy', 'Unitree Go2', 'RTAB-Map', 'Nav2', 'YOLOE', 'Gazebo Harmonic', 'OpenCV'],
-    github: 'https://github.com/Manas-arumalla/autonomous-go2-inspection',
-  },
-  {
     id: 'sparsam',
     title: 'sparsam — From-Scratch C++20 SLAM Backend',
     cat: 'Control',
@@ -419,7 +402,7 @@ export const PROJECTS = [
 ]
 
 // Curated subset for the home-page preview grid.
-export const PREVIEW_IDS = ['go2-inspection', 'sparsam', 'aegisdrive', 'swarm-autonomy', 'intercept', 'manipdyn']
+export const PREVIEW_IDS = ['sparsam', 'aegisdrive', 'swarm-autonomy', 'intercept', 'ballpark', 'manipdyn']
 
 // Static fallback for the GitHub feed when the API is rate-limited.
 export const GH_FALLBACK = [

@@ -5,7 +5,7 @@ import { ArrowDown, Lightbulb, SquareTerminal, Menu, X } from 'lucide-react'
 
 const LINKS = [
   ['About', '#briefing'],
-  ['Award', '#award'],
+  ['Hackathons', '#award'],
   ['Work', '#work'],
   ['Journey', '#journey'],
   ['Research', '#research'],

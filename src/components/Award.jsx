@@ -1,4 +1,5 @@
-import { Trophy, ArrowUpRight, Users } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Trophy, ArrowUpRight, Users, Dog } from 'lucide-react'
 import Reveal from './Reveal'
 
 const CHIPS = ['Claude (LLM)', 'SmolVLA', 'Custom MCP Server', '8-DOF Arm', 'NormaCore API', 'Sim-to-Real']
@@ -59,6 +60,26 @@ export default function Award() {
             </Reveal>
           </div>
         </div>
+
+        {/* second hackathon — compact strip */}
+        <Reveal delay={0.1}>
+          <div className="award-strip">
+            <span className="ch-icon"><Dog size={20} /></span>
+            <div className="award-strip-body">
+              <span className="case-idx">EUROPE EMBODIED ’26 · MUNICH</span>
+              <h4>Autonomous Go2 Facility Inspection</h4>
+              <p>
+                Built a Unitree Go2 that explores an unknown facility, maps it with RTAB-Map SLAM,
+                finds and reads gauges with YOLOE, and writes the inspection report — fully autonomous,
+                in one hackathon weekend. Hardened afterwards to 4/4 detection at F1 = 1.0.
+              </p>
+            </div>
+            <div className="award-strip-links">
+              <Link className="text-link" to="/archive?p=go2-inspection">Project ↗</Link>
+              <a className="text-link" href="https://github.com/Manas-arumalla/autonomous-go2-inspection" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   )

@@ -13,8 +13,8 @@ export default function GitHubFeed() {
       .then((r) => (r.ok ? r.json() : Promise.reject()))
       .then((data) => {
         if (cancelled || !Array.isArray(data)) return
-        // hide forks and the portfolio's own repos (old 'portfolio' + this site)
-        const hidden = ['portfolio', 'manas-arumalla.github.io']
+        // hide forks, the portfolio's own repos, and the profile readme repo
+        const hidden = ['portfolio', 'manas-arumalla.github.io', 'manas-arumalla']
         const top = data.filter((r) => !r.fork && !hidden.includes(r.name.toLowerCase())).slice(0, 6)
         if (top.length) { setRepos(top); setLive(true) }
       })

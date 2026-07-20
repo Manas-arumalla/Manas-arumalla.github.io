@@ -5,6 +5,66 @@ export const CATEGORIES = ['All', 'Aerial', 'Manipulation', 'Mobile Robots', 'Co
 
 export const PROJECTS = [
   {
+    id: 'go2-inspection',
+    title: 'Autonomous Go2 — Facility Inspection Quadruped',
+    cat: 'Mobile Robots',
+    year: '2026',
+    media: { type: 'image', src: '/assets/go2-zones.png' },
+    desc: 'A Unitree Go2 that maps unknown facilities, finds and reads gauges, and writes the inspection report — no ground-truth poses, no manual steps. Born at the Europe Embodied ’26 hackathon in Munich.',
+    points: [
+      'Full autonomy pipeline: frontier exploration → RTAB-Map SLAM → room segmentation → Nav2 → YOLOE detection → 3D localization → report',
+      '4/4 gauge recall and precision (F1 = 1.0), ~0.1 m mean 3D localization error',
+      'Sim-to-real by construction: the identical ROS 2 node graph runs in Gazebo and on the real Go2',
+      'Reliability hardening: localization gates, wedge-recovery behaviours, observation-aware detection consolidation',
+      'One-command demo (`./run_demo.sh`) and 38 unit tests in CI',
+    ],
+    stack: ['ROS 2 Jazzy', 'Unitree Go2', 'RTAB-Map', 'Nav2', 'YOLOE', 'Gazebo Harmonic', 'OpenCV'],
+    github: 'https://github.com/Manas-arumalla/autonomous-go2-inspection',
+  },
+  {
+    id: 'sparsam',
+    title: 'sparsam — From-Scratch C++20 SLAM Backend',
+    cat: 'Control',
+    year: '2026',
+    media: { type: 'image', src: '/assets/sparsam-convergence.png' },
+    gallery: [
+      { src: '/assets/sparsam-trajectories.jpg', cap: 'Pose-graph trajectories — chordal init vs odometry' },
+    ],
+    desc: 'A pose-graph optimization and bundle-adjustment backend written from scratch in C++20 — Lie groups, sparse linear algebra and robust estimation with no external solver libraries.',
+    points: [
+      'SO(2)/SE(2)/SO(3)/SE(3) with analytic Jacobians — retraction only, never raw vector addition on manifolds',
+      'Block-sparse Cholesky with custom AMD/RCM ordering: 4.45 ms factor+solve on M3500 (365× spread vs natural ordering)',
+      'Final-cost parity with Ceres within 0.25% on BAL bundle adjustment — lower on 3 of 4 problems',
+      '1.7–2.1× faster than GTSAM on M3500; chordal initialization converges where odometry-init fails',
+      'GNC robust estimation recovers exact inliers at 70% contamination; 147 tests with ASan/UBSan',
+    ],
+    stack: ['C++20', 'Eigen', 'Lie Groups', 'Sparse Cholesky', 'Bundle Adjustment', 'GNC', 'CMake'],
+    github: 'https://github.com/Manas-arumalla/sparsam',
+  },
+  {
+    id: 'aegisdrive',
+    title: 'aegisdrive — Uncertainty-Aware Autonomous Driving',
+    cat: 'Mobile Robots',
+    year: '2026',
+    media: { type: 'image', src: '/assets/aegisdrive-stack.mp4' },
+    gallery: [
+      { src: '/assets/aegisdrive-photoreal.mp4', cap: 'Photoreal drive — 3D Gaussian splatting' },
+      { src: '/assets/aegisdrive-junction.mp4', cap: 'Multimodal prediction at a junction' },
+      { src: '/assets/aegisdrive-reallog.mp4', cap: 'Real-log evaluation — rankings invert' },
+      { src: '/assets/aegisdrive-leaderboard.png', cap: 'P-Gap leaderboard, 56 scenarios × 3 severities' },
+    ],
+    desc: 'A closed-loop AV research platform that stress-tests planners under parameterized perception degradation — and checks whether the evaluation itself can be trusted.',
+    points: [
+      'P-Gap benchmark: sensor misses, false positives, noise, latency and occlusion scaled by one severity dial (λ)',
+      'Conformally calibrated uncertainty propagated into risk-aware planners (lattice, contingency, PDM, IL, RL, VLM)',
+      'Safety shields (RSS, CBF) as swappable modules — PDM-RSS leads at 0.721 composite with zero collisions',
+      'CEM-based adversarial scenario search with fairness constraints',
+      'Bit-reproducible trajectories verified by cryptographic digests in CI; real-log evaluation exposes sim-only rankings',
+    ],
+    stack: ['Python', 'PyTorch', 'JAX', 'Hydra', '3D Gaussian Splatting', 'RSS / CBF', 'Conformal Prediction'],
+    github: 'https://github.com/Manas-arumalla/aegisdrive',
+  },
+  {
     id: 'swarm-autonomy',
     title: 'swarm-autonomy — GPS-Denied Multi-Drone Search & Pursuit',
     cat: 'Aerial',
@@ -359,15 +419,14 @@ export const PROJECTS = [
 ]
 
 // Curated subset for the home-page preview grid.
-export const PREVIEW_IDS = ['swarm-autonomy', 'intercept', 'ballpark', 'manipdyn', 'steady-stride', 'handtrack']
+export const PREVIEW_IDS = ['go2-inspection', 'sparsam', 'aegisdrive', 'swarm-autonomy', 'intercept', 'manipdyn']
 
 // Static fallback for the GitHub feed when the API is rate-limited.
 export const GH_FALLBACK = [
+  { name: 'sparsam', description: 'From-scratch C++20 SLAM/estimation backend', language: 'C++', html_url: 'https://github.com/Manas-arumalla/sparsam' },
+  { name: 'aegisdrive', description: 'Uncertainty-aware autonomous-driving research platform', language: 'Python', html_url: 'https://github.com/Manas-arumalla/aegisdrive' },
+  { name: 'autonomous-go2-inspection', description: 'Quadruped facility inspection: SLAM, exploration, gauge reading', language: 'Python', html_url: 'https://github.com/Manas-arumalla/autonomous-go2-inspection' },
   { name: 'swarm-autonomy', description: 'Decentralized GPS-denied multi-drone search & pursuit', language: 'Python', html_url: 'https://github.com/Manas-arumalla/swarm-autonomy' },
   { name: 'intercept', description: 'Elo ratings for missile-guidance laws — a reproducible benchmark', language: 'Python', html_url: 'https://github.com/Manas-arumalla/intercept' },
-  { name: 'ballpark', description: 'Races classical and learned mobile-autonomy stacks', language: 'Python', html_url: 'https://github.com/Manas-arumalla/ballpark' },
-  { name: 'flowswarm', description: 'Congestion-aware decentralized multi-robot navigation', language: 'Python', html_url: 'https://github.com/Manas-arumalla/flowswarm' },
   { name: 'drone-landing-moving-platform', description: 'Vision-based quadrotor landing with formal-safety shields', language: 'Python', html_url: 'https://github.com/Manas-arumalla/drone-landing-moving-platform' },
-  { name: 'openarm-control', description: 'Bimanual manipulation and learning for Enactic OpenArm v2', language: 'Python', html_url: 'https://github.com/Manas-arumalla/openarm-control' },
-  { name: 'manipdyn', description: 'MuJoCo lab for UR5e: 8 controllers, 5 planners, RL', language: 'Python', html_url: 'https://github.com/Manas-arumalla/manipdyn' },
 ]

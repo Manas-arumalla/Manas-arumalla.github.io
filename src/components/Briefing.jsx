@@ -50,7 +50,7 @@ function CountUp({ to }) {
 const STATS = [
   { n: 15, suffix: '+', label: 'Controllers benchmarked' },
   { n: 3, suffix: '', label: 'Papers · 1 published, 2 in review' },
-  { n: 18, suffix: '', label: 'Open-source repositories' },
+  { n: 20, suffix: '', label: 'Open-source repositories' },
   { n: 5, suffix: '', label: 'Industry & research roles' },
 ]
 

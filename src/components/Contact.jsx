@@ -10,7 +10,7 @@ const CHANNELS = [
     icon: <Github size={20} />,
     label: 'GitHub',
     handle: '@Manas-arumalla',
-    sub: '18 open-source robotics systems',
+    sub: '20 open-source robotics systems',
     href: 'https://github.com/Manas-arumalla',
   },
   {

@@ -645,6 +645,60 @@ html[data-theme="light"] .mobile-menu { background: rgba(231, 235, 239, 0.97); }
   .telemetry { gap: 1.2rem; }
 }
 
+/* ---------- Resume page ---------- */
+.resume-wrap { max-width: 980px; }
+.res-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; flex-wrap: wrap; margin-bottom: clamp(2rem, 4vw, 3rem); }
+.res-head h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.2rem, 5vw, 3.4rem); letter-spacing: -0.025em; margin-top: 1rem; }
+.res-title { color: var(--muted); margin-top: 0.4rem; }
+.res-contacts { display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; margin-top: 1rem; }
+.res-contacts a, .res-contacts span { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--faint); transition: color 0.2s; }
+.res-contacts a:hover { color: var(--accent); }
+.res-contacts svg { color: var(--accent); }
+.res-download { flex: none; margin-top: 1rem; }
+.res-section { border-top: 1px solid var(--line); padding-top: 1.6rem; margin-bottom: 2.2rem; }
+.res-section h2 {
+  font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1.2rem;
+}
+.res-summary { color: var(--muted); max-width: 75ch; }
+.res-item { margin-bottom: 1.3rem; }
+.res-item-head { display: flex; align-items: baseline; gap: 0.4rem 1rem; flex-wrap: wrap; }
+.res-item-head b { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; }
+.res-org { color: var(--accent); font-size: 0.88rem; }
+.res-date { margin-left: auto; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; color: var(--faint); }
+.res-item ul { margin-top: 0.4rem; display: grid; gap: 0.3rem; }
+.res-item li, .res-projects li { color: var(--muted); font-size: 0.92rem; padding-left: 1.1rem; position: relative; }
+.res-item li::before, .res-projects li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+.res-projects { display: grid; gap: 0.55rem; }
+.res-projects b { color: var(--text); font-weight: 600; }
+.res-skills { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem 2.5rem; }
+.res-skills div { display: flex; flex-direction: column; gap: 0.15rem; }
+.res-skills b { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text); }
+.res-skills span { color: var(--muted); font-size: 0.88rem; }
+@media (max-width: 700px) { .res-skills { grid-template-columns: 1fr; } .res-date { margin-left: 0; width: 100%; } }
+
+/* Print: clean single-column paper resume */
+@media print {
+  .site-nav, .site-foot, .status-hud, .grid-bg, .backdrop, .vignette, .ai-layer,
+  .cursor-core, .cursor-reticle, .scroll-progress, .terminal, .res-download, .hero-ambient, .lost-art { display: none !important; }
+  body { background: #fff !important; color: #111 !important; }
+  :root { --bg: #fff; --panel: #fff; --text: #111; --muted: #333; --faint: #555; --accent: #c33c00; --line: #ddd; }
+  .resume-page { padding: 0 !important; }
+  .resume-wrap { max-width: 100%; }
+  .res-head h1 { font-size: 2rem; }
+  .res-section { break-inside: avoid; }
+  a { color: #111 !important; text-decoration: none; }
+}
+
+/* ---------- 404 lost-robot backdrop ---------- */
+.lost-art {
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  width: 100%; height: 100%; object-fit: cover; opacity: 0.5;
+  mask-image: linear-gradient(180deg, transparent 0%, black 30%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 30%);
+}
+html[data-theme="light"] .lost-art { display: none; }
+
 /* ---------- Status HUD (flight recorder) ---------- */
 .status-hud {
   position: fixed; left: 1.1rem; bottom: 1rem; z-index: 90; pointer-events: none;

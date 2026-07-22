@@ -12,6 +12,7 @@ import StatusHud from './components/StatusHud'
 import Terminal from './components/Terminal'
 import Home from './pages/Home'
 import Archive from './pages/Archive'
+import Resume from './pages/Resume'
 import NotFound from './pages/NotFound'
 
 export default function App() {
@@ -58,6 +59,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home ready={booted} />} />
           <Route path="/archive" element={<Archive />} />
+          <Route path="/resume" element={<Resume />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

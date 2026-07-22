@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://manas-arumalla.github.io/sitemap.xml

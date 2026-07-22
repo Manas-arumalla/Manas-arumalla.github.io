@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
+import Seo from '../components/Seo'
 import SimCanvas from '../components/SimCanvas'
 import Reveal from '../components/Reveal'
 
 export default function NotFound() {
   return (
     <section className="page-hero" style={{ minHeight: '88svh' }}>
+      <Seo title="404 — Robot off the map" description="This route doesn't exist." path="/404" noindex />
+      <img className="lost-art" src="/assets/ai/lost-robot.jpg" alt="" aria-hidden="true" />
       <div className="wrap">
         <Reveal><span className="kicker"><span className="idx">404</span> Signal lost</span></Reveal>
         <Reveal delay={0.08}>

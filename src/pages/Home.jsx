@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import Seo from '../components/Seo'
 import Hero from '../components/Hero'
 import Marquee from '../components/Marquee'
 import Briefing from '../components/Briefing'
@@ -25,6 +26,11 @@ export default function Home({ ready }) {
 
   return (
     <>
+      <Seo
+        title="Manas Reddy Arumalla — Robotics & Control Engineer"
+        description="Robotics & control engineer — MSc Autonomy Technologies, FAU Erlangen-Nürnberg. Portfolio with live control simulations: vision-based drone landing, bimanual manipulation, 15+ benchmarked controllers. IEEE ICRM 2025 author."
+        path="/"
+      />
       <Hero ready={ready} />
       <Marquee />
       <Briefing />

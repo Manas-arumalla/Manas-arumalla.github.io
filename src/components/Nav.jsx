@@ -94,9 +94,9 @@ export default function Nav() {
           <button className="theme-toggle" aria-label="Toggle lab lights" title="Lab lights" data-hover onClick={toggleTheme}>
             <Lightbulb size={14} />
           </button>
-          <a className="nav-cta" href="/assets/Manas_Reddy_Arumalla_Resume.pdf" target="_blank" rel="noopener noreferrer">
+          <Link className="nav-cta" to="/resume">
             Resume <ArrowDown size={11} style={{ display: 'inline', verticalAlign: '-1px' }} />
-          </a>
+          </Link>
           <button
             className="theme-toggle nav-burger"
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}

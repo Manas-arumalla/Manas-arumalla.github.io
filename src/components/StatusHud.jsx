@@ -28,7 +28,7 @@ export default function StatusHud() {
 
   useEffect(() => {
     if (pathname !== '/') {
-      setMode(pathname === '/archive' ? 'ARCHIVE' : 'LOST')
+      setMode(pathname === '/archive' ? 'ARCHIVE' : pathname === '/resume' ? 'DOSSIER' : 'LOST')
       return
     }
     let raf = null

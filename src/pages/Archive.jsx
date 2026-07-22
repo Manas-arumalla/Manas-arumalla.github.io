@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { PROJECTS, CATEGORIES } from '../data/projects'
+import Seo from '../components/Seo'
 import ProjectCard from '../components/ProjectCard'
 import ProjectModal from '../components/ProjectModal'
 import Reveal from '../components/Reveal'
@@ -23,6 +24,11 @@ export default function Archive() {
 
   return (
     <>
+      <Seo
+        title="Project Archive — Manas Reddy Arumalla"
+        description="18+ open-source robotics systems: GPS-denied drone swarms, SLAM backends, manipulation platforms, guidance-law benchmarks, self-balancing robots and more — with demos, metrics and code."
+        path="/archive"
+      />
       <section className="page-hero">
         <div className="wrap">
           <Reveal><span className="kicker"><span className="idx">ARCHIVE</span> All systems</span></Reveal>

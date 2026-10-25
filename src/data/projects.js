@@ -5,6 +5,27 @@ export const CATEGORIES = ['All', 'Aerial', 'Manipulation', 'Mobile Robots', 'Co
 
 export const PROJECTS = [
   {
+    id: 'panda-tamp',
+    title: 'panda-tamp — Closed-Loop Task & Motion Planning',
+    cat: 'Manipulation',
+    year: '2026',
+    media: { type: 'image', src: '/assets/panda-stack.png' },
+    gallery: [
+      { src: '/assets/panda-pnp.png', cap: 'Pick-and-place plan, verified in geometry' },
+      { src: '/assets/panda-yolo.png', cap: 'YOLOv8 detections back-projected to poses' },
+    ],
+    desc: 'A Franka Panda that plans symbolically and answers to geometry: PDDL plans are checked against IK, grasps and swept paths — and replanned the moment the world disagrees.',
+    points: [
+      'Bridge predicates (reachable, graspable, placeable, stackable) falsified by the geometric layer — failed steps trigger replanning from the observed state',
+      'Execution feedback: failed grasps falsify facts at runtime; honest-failure counterfactual tests',
+      'YOLOv8 perception back-projected through depth (~4 cm pose accuracy); grasps gated on finger closure',
+      'Language goals via LLM or deterministic grammar — the model proposes goals, never actions; exposed as an MCP server',
+      'Offline-core planning loop in plain Python (no ROS required); 70+ tests; ROS 2 Jazzy + MoveIt 2 + Gazebo integration',
+    ],
+    stack: ['PDDL', 'Fast Downward', 'ROS 2 Jazzy', 'MoveIt 2', 'YOLOv8', 'trimesh/FCL', 'MCP', 'Python'],
+    github: 'https://github.com/Manas-arumalla/panda-tamp',
+  },
+  {
     id: 'sparsam',
     title: 'sparsam — From-Scratch C++20 SLAM Backend',
     cat: 'Control',
@@ -109,8 +130,9 @@ export const PROJECTS = [
       'IK with 0.03 mm mean position error; sub-0.1 mm Cartesian tracking',
       'Cartesian and compliant (admittance) control, RRT-Connect obstacle avoidance',
       'Articulated-object handling (drawers, valves), cloth folding, collision-aware bimanual hand-over',
-      'Dynamic ball-catching via Kalman + MPC interception — 160/160 clean catches; 8/8 two-ball simultaneous',
-      'Learned ACT vision policy and an RL insertion suite; 150 headless tests, ~10.6k LOC',
+      'Dynamic ball-catching via Kalman + MPC interception — 160/160 clean catches; 8/8 two-ball simultaneous; removing MPC replanning drops catch rate 100% → 10%',
+      'Learned ACT vision policy, contact-only RL suite, ball-on-plate balancing (PD/LQR/MPC/SAC), OpenArm-Bench; 165 headless tests, ~10.6k LOC',
+      'Upstream contributor to Enactic’s official OpenArm stack — 16 merged PRs across openarm_mjlab (full task suite + eval tooling), openarm_mujoco (task scenes) and openarm_dataset',
     ],
     stack: ['Python', 'MuJoCo', 'Admittance Control', 'RRT-Connect', 'Kalman + MPC', 'ACT', 'RL'],
     github: 'https://github.com/Manas-arumalla/openarm-control',
@@ -402,10 +424,11 @@ export const PROJECTS = [
 ]
 
 // Curated subset for the home-page preview grid.
-export const PREVIEW_IDS = ['sparsam', 'aegisdrive', 'swarm-autonomy', 'intercept', 'ballpark', 'manipdyn']
+export const PREVIEW_IDS = ['panda-tamp', 'sparsam', 'aegisdrive', 'swarm-autonomy', 'intercept', 'manipdyn']
 
 // Static fallback for the GitHub feed when the API is rate-limited.
 export const GH_FALLBACK = [
+  { name: 'panda-tamp', description: 'Closed-loop task & motion planning for a Franka Panda', language: 'Python', html_url: 'https://github.com/Manas-arumalla/panda-tamp' },
   { name: 'sparsam', description: 'From-scratch C++20 SLAM/estimation backend', language: 'C++', html_url: 'https://github.com/Manas-arumalla/sparsam' },
   { name: 'aegisdrive', description: 'Uncertainty-aware autonomous-driving research platform', language: 'Python', html_url: 'https://github.com/Manas-arumalla/aegisdrive' },
   { name: 'autonomous-go2-inspection', description: 'Quadruped facility inspection: SLAM, exploration, gauge reading', language: 'Python', html_url: 'https://github.com/Manas-arumalla/autonomous-go2-inspection' },

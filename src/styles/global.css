@@ -481,6 +481,27 @@ html[data-theme="light"] .mobile-menu { background: rgba(231, 235, 239, 0.97); }
 .repo .lang::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); margin-right: 0.45rem; }
 .gh-foot { margin-top: 2.2rem; display: flex; justify-content: center; }
 
+/* ---------- Upstream contributions strip ---------- */
+.upstream {
+  border: 1px solid var(--line); border-left: 2px solid var(--accent);
+  border-radius: var(--radius); background: var(--panel);
+  padding: clamp(1.2rem, 2.5vw, 1.7rem) clamp(1.3rem, 3vw, 2rem);
+  margin-bottom: 1.6rem;
+}
+.upstream-head { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.9rem; }
+.upstream-head svg { color: var(--accent); }
+.upstream-head b { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; }
+.upstream-count {
+  font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ok); border: 1px solid rgba(61, 220, 151, 0.35); border-radius: 999px; padding: 0.3rem 0.7rem;
+  margin-left: auto;
+}
+.upstream ul { display: grid; gap: 0.45rem; }
+.upstream li { font-size: 0.88rem; color: var(--muted); }
+.upstream li a { color: var(--text); font-size: 0.78rem; }
+.upstream li a:hover { color: var(--accent); }
+@media (max-width: 700px) { .upstream-count { margin-left: 0; } }
+
 /* ---------- Skills ---------- */
 .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
 .skill-cell { background: var(--bg-raised); padding: clamp(1.5rem, 3vw, 2.2rem); }

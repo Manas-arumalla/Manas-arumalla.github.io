@@ -50,8 +50,10 @@ const EXPERIENCE = [
 ]
 
 const PROJECTS = [
+  ['OpenArm upstream (Enactic)', '16 merged PRs to the official stack: full mjlab task suite (Reach → BimanualLift), policy evaluation tooling, MuJoCo task scenes, dataset logger'],
   ['Vision-Based Drone Landing', '~92% vision-only landing on moving platforms & 6-DOF ship decks; SE(3) + tube-DOB MPC, HJ reachability shield, PPO'],
-  ['OpenArm Bimanual Manipulation', '160/160 dynamic catches; 0.03 mm IK accuracy; admittance control, RRT-Connect, ACT vision policy'],
+  ['OpenArm Bimanual Manipulation', '160/160 dynamic catches; 0.03 mm IK accuracy; admittance control, RRT-Connect, ACT vision policy; 165 tests'],
+  ['panda-tamp', 'Closed-loop TAMP for a Franka Panda: PDDL + Fast Downward with geometric feasibility feedback, YOLOv8 perception, LLM goal proposals via MCP'],
   ['Two-Wheeled Inverted Pendulum', '15+ controllers (LQR→H∞→SMC→MPC) benchmarked on one platform, auto-tuned, MuJoCo-validated'],
   ['swarm-autonomy', 'GPS-denied multi-drone search & pursuit: OpenVINS VIO, CBBA allocation, ESDF planning — 2.3× faster coverage'],
   ['sparsam', 'From-scratch C++20 SLAM backend: Ceres-parity bundle adjustment, 1.7–2.1× faster than GTSAM on M3500'],

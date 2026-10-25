@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react'
-import { ArrowUpRight, GitBranch, Star } from 'lucide-react'
+import { ArrowUpRight, GitBranch, Star, GitMerge } from 'lucide-react'
 import { GH_FALLBACK } from '../data/projects'
 import Reveal from './Reveal'
+
+const UPSTREAM = [
+  { repo: 'enactic/openarm_mjlab', merged: 11, what: 'the full manipulation task suite (Reach → BimanualLift), policy evaluation & task-honesty tooling', url: 'https://github.com/enactic/openarm_mjlab/pulls?q=is%3Apr+author%3AManas-arumalla' },
+  { repo: 'enactic/openarm_mujoco', merged: 4, what: 'task scenes: insertion, articulated objects, catching & throwing, multi-bin', url: 'https://github.com/enactic/openarm_mujoco/pulls?q=is%3Apr+author%3AManas-arumalla' },
+  { repo: 'enactic/openarm_dataset', merged: 1, what: 'robot_eval_logger output format', url: 'https://github.com/enactic/openarm_dataset/pulls?q=is%3Apr+author%3AManas-arumalla' },
+]
 
 export default function GitHubFeed() {
   const [repos, setRepos] = useState(GH_FALLBACK)
@@ -32,6 +38,24 @@ export default function GitHubFeed() {
             <p className="lead">{live ? 'Live from the GitHub API — most recently active repositories.' : 'Most recently active repositories.'}</p>
           </Reveal>
         </div>
+        <Reveal>
+          <div className="upstream">
+            <div className="upstream-head">
+              <GitMerge size={15} />
+              <b>Upstream contributor — Enactic OpenArm</b>
+              <span className="upstream-count">16 merged PRs · 4 in review</span>
+            </div>
+            <ul>
+              {UPSTREAM.map((u) => (
+                <li key={u.repo}>
+                  <a href={u.url} target="_blank" rel="noopener noreferrer" data-hover className="mono">{u.repo}</a>
+                  <span> — {u.merged} merged: {u.what}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
+
         <div className="gh-grid">
           {repos.map((r, i) => (
             <Reveal key={r.name} delay={i * 0.06}>

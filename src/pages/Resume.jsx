@@ -4,7 +4,7 @@ import Reveal from '../components/Reveal'
 
 const EXPERIENCE = [
   {
-    date: 'Feb — Apr 2026',
+    date: 'Feb –Mar 2026',
     role: 'Robotics Engineer',
     org: 'Humanoid Robotics Startup (Stealth)',
     points: [
@@ -13,16 +13,16 @@ const EXPERIENCE = [
     ],
   },
   {
-    date: 'Sep 2025 — Jan 2026',
+    date: 'Sep 2025 –Jan 2026',
     role: 'Research Assistant',
     org: 'Amrita Vishwa Vidyapeetham · Dr. Rammohan Sriramdas',
     points: [
-      'Developed a DST-funded two-wheeled hopping robot: characterized jump dynamics and designed stabilizing control — published at IEEE ICRM 2025',
+      'Developed a DST-funded two-wheeled hopping robot: characterized jump dynamics and designed stabilizing control, published at IEEE ICRM 2025',
       'Enhanced control and navigation on a quadruped mobile robot; authored three research papers',
     ],
   },
   {
-    date: 'Jun — Aug 2024',
+    date: 'Jun –Aug 2024',
     role: 'Robotics Intern',
     org: 'Anvi Robotics · Hyderabad',
     points: [
@@ -31,7 +31,7 @@ const EXPERIENCE = [
     ],
   },
   {
-    date: 'Oct 2023 — Dec 2024',
+    date: 'Oct 2023 –Dec 2024',
     role: 'Robotics Intern',
     org: 'Sony SSUP Program',
     points: [
@@ -40,7 +40,7 @@ const EXPERIENCE = [
     ],
   },
   {
-    date: 'Mar — Apr 2024',
+    date: 'Mar –Apr 2024',
     role: 'Robotics Intern',
     org: '7s Technologies · Hyderabad',
     points: [
@@ -51,13 +51,13 @@ const EXPERIENCE = [
 
 const PROJECTS = [
   ['OpenArm upstream (Enactic)', '16 merged PRs to the official stack: full mjlab task suite (Reach → BimanualLift), policy evaluation tooling, MuJoCo task scenes, dataset logger'],
+  ['OpenArm Bimanual Manipulation', '160/160 dynamic catches; 0.03 mm IK accuracy; admittance control, RRT-Connect, ACT vision policy'],
   ['Vision-Based Drone Landing', '~92% vision-only landing on moving platforms & 6-DOF ship decks; SE(3) + tube-DOB MPC, HJ reachability shield, PPO'],
-  ['OpenArm Bimanual Manipulation', '160/160 dynamic catches; 0.03 mm IK accuracy; admittance control, RRT-Connect, ACT vision policy; 165 tests'],
   ['panda-tamp', 'Closed-loop TAMP for a Franka Panda: PDDL + Fast Downward with geometric feasibility feedback, YOLOv8 perception, LLM goal proposals via MCP'],
   ['Two-Wheeled Inverted Pendulum', '15+ controllers (LQR→H∞→SMC→MPC) benchmarked on one platform, auto-tuned, MuJoCo-validated'],
-  ['swarm-autonomy', 'GPS-denied multi-drone search & pursuit: OpenVINS VIO, CBBA allocation, ESDF planning — 2.3× faster coverage'],
+  ['swarm-autonomy', 'GPS-denied multi-drone search & pursuit: OpenVINS VIO, CBBA allocation, ESDF planning; 2.3× faster coverage'],
   ['sparsam', 'From-scratch C++20 SLAM backend: Ceres-parity bundle adjustment, 1.7–2.1× faster than GTSAM on M3500'],
-  ['Autonomous Go2 Inspection', 'Quadruped facility inspection: RTAB-Map SLAM, frontier exploration, YOLOE gauge reading — F1 = 1.0'],
+  ['Autonomous Go2 Inspection', 'Quadruped facility inspection: RTAB-Map SLAM, frontier exploration, YOLOE gauge reading; F1 = 1.0'],
 ]
 
 const SKILLS = [
@@ -73,7 +73,7 @@ export default function Resume() {
   return (
     <section className="page-hero resume-page">
       <Seo
-        title="Resume — Manas Reddy Arumalla · Robotics & Control Engineer"
+        title="Resume · Manas Reddy Arumalla · Robotics & Control Engineer"
         description="Resume of Manas Reddy Arumalla: robotics & control engineer, MSc Autonomy Technologies (FAU Erlangen-Nürnberg), IEEE ICRM 2025 author, 1st place HackLab Berlin. Control systems, motion planning, sim-to-real."
         path="/resume"
       />
@@ -83,7 +83,7 @@ export default function Resume() {
             <div>
               <span className="kicker"><span className="idx">DOSSIER</span> Resume</span>
               <h1>Manas Reddy Arumalla</h1>
-              <p className="res-title">Robotics &amp; Control Engineer — MSc Autonomy Technologies, FAU Erlangen-Nürnberg</p>
+              <p className="res-title">Robotics &amp; Control Engineer · MSc Autonomy Technologies, FAU Erlangen-Nürnberg</p>
               <div className="res-contacts">
                 <a href="mailto:manasreddyarumalla@gmail.com"><Mail size={12} /> manasreddyarumalla@gmail.com</a>
                 <a href="tel:+919700171171"><Phone size={12} /> +91 97001 71171</a>
@@ -103,12 +103,13 @@ export default function Resume() {
           <div className="res-section">
             <h2>Summary</h2>
             <p className="res-summary">
-              Control &amp; autonomy engineer specializing in estimation and safe control for aerial and
-              mobile robots. Published author (IEEE ICRM 2025) and DST-funded researcher, with a
-              research-grade portfolio spanning a vision-only drone that lands on moving ship decks, a
-              bimanual manipulation platform, and 15+ benchmarked controller designs. Comfortable across
-              the full stack — dynamic modelling and control design in MATLAB, validation in
-              MuJoCo/Gazebo, and deployment to ROS 2 and embedded hardware.
+              I build robots that have to work in the real world: a vision-only drone that lands
+              itself on a moving ship deck, a bimanual arm that catches balls out of the air, a
+              quadruped that maps and inspects a facility on its own. That work has become an IEEE
+              publication (ICRM 2025), a hackathon win in Berlin, and 16 PRs merged upstream into
+              Enactic’s official OpenArm stack. I take ideas the whole way: derive the dynamics,
+              design the controller, prove it in simulation, deploy it to hardware, and back every
+              claim with tests.
             </p>
           </div>
         </Reveal>
@@ -136,16 +137,16 @@ export default function Resume() {
               <div className="res-item-head">
                 <b>M.Sc. Autonomy Technologies</b>
                 <span className="res-org">Friedrich-Alexander-Universität Erlangen-Nürnberg</span>
-                <span className="res-date">2026 — Present</span>
+                <span className="res-date">2026 –Present</span>
               </div>
             </div>
             <div className="res-item">
               <div className="res-item-head">
                 <b>B.Tech, Automation &amp; Robotics</b>
                 <span className="res-org">Amrita Vishwa Vidyapeetham · Coimbatore</span>
-                <span className="res-date">2021 — 2025</span>
+                <span className="res-date">2021 –2025</span>
               </div>
-              <ul><li>CGPA 8.84/10 — First Class with Distinction</li></ul>
+              <ul><li>CGPA 8.84/10, First Class with Distinction</li></ul>
             </div>
           </div>
         </Reveal>
@@ -155,7 +156,7 @@ export default function Resume() {
             <h2>Selected Projects</h2>
             <ul className="res-projects">
               {PROJECTS.map(([name, desc]) => (
-                <li key={name}><b>{name}</b> — {desc}</li>
+                <li key={name}><b>{name}</b>:{desc}</li>
               ))}
             </ul>
           </div>
@@ -165,10 +166,10 @@ export default function Resume() {
           <div className="res-section">
             <h2>Publications &amp; Awards</h2>
             <ul className="res-projects">
-              <li><b>Mapping the Dynamics of Robotic Jumps in Hopping Robots</b> — IEEE ICRM 2025, DOI 10.1109/ICRM66809.2025.11349074 · two further manuscripts under review</li>
-              <li><b>1st Place — HackLab Berlin AI × Robotics Hackathon</b> — Claude-driven 8-DOF arm via custom MCP safety server (NormaCore track)</li>
-              <li><b>Europe Embodied ’26 · Munich</b> — autonomous Unitree Go2 facility-inspection system built in one weekend</li>
-              <li><b>e-Yantra Robotics Competition (IIT Bombay)</b> — national Level 3 qualifier</li>
+              <li><b>Mapping the Dynamics of Robotic Jumps in Hopping Robots</b>:IEEE ICRM 2025, DOI 10.1109/ICRM66809.2025.11349074 · two further manuscripts under review</li>
+              <li><b>1st Place, HackLab Berlin AI × Robotics Hackathon</b>:Claude-driven 8-DOF arm via custom MCP safety server (NormaCore track)</li>
+              <li><b>Europe Embodied ’26 · Munich</b>:autonomous Unitree Go2 facility-inspection system built in one weekend</li>
+              <li><b>e-Yantra Robotics Competition (IIT Bombay)</b>:national Level 3 qualifier</li>
             </ul>
           </div>
         </Reveal>
